@@ -8,7 +8,7 @@ import view.Menu;
 
 /**
  *
- * @author DELL
+ * @author Huydeptrai
  */
 public class BookingManagement extends Menu {
 
