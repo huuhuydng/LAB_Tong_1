@@ -3,6 +3,8 @@ package service;
 import model.Facility;
 import service.BookingService;
 import model.Booking;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,18 +21,18 @@ public class PromotionService {
     TreeSet<Booking> cusServList = new TreeSet<>();
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-    public PromotionService(BookingService bs) {
-        this.bs=bs;
+    public PromotionService() {
     }
 
-    public void showCusService() {
+    public void showCusService() throws ParseException {
         System.out.println("Enter the year use service to find customer: ");
         int year = sc.nextInt();
         checkYear(year);
         displayListBooking();
     }
 
-    public void checkYear(int year) {
+    public void checkYear(int year) throws ParseException {
+        bs.readInf();
         for (Booking booking : bs.listBooking) {
             if (booking.getYear(booking.getBookingDate()) == year) {
                 cusServList.add(booking);
