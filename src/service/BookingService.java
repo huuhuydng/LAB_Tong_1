@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
@@ -24,8 +25,8 @@ public class BookingService {
     public TreeSet<Booking> listBooking = new TreeSet<>();
     Queue<Booking> bookingBill = new LinkedList<>();
     ArrayList<Constract> listConstract = new ArrayList<>();
-    Map<Facility, Integer> bill = new HashMap<>();
-    FacilityRepository fr = new FacilityRepository();
+    static LinkedHashMap<Facility, Integer> bill = new LinkedHashMap<>();
+//    FacilityRepository fr = new FacilityRepository();
     Map<Booking, Integer> oorder = new HashMap<>();  //luu cac phong trong 1 don
     Scanner in = new Scanner(System.in);
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -41,6 +42,10 @@ public class BookingService {
         
     }
 
+    public static LinkedHashMap<Facility, Integer> getMap(){
+        return bill;
+    }
+    
 
     public void readInf() throws ParseException {
         Facility r = new Villa("SVVL-0001","Villa 1",600, 2000, 10, "Villa", "luxury", "80", "4");

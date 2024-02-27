@@ -23,5 +23,4 @@ import java.util.TreeSet;
  * @author hadi
  */
 public class PromotionRepository {
-    
 }

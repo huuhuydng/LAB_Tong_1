@@ -14,6 +14,7 @@ import model.Facility;
 import model.House;
 import model.Room;
 import model.Villa;
+import service.BookingService;
 
 /**
  *
@@ -22,12 +23,12 @@ import model.Villa;
 public class FacilityRepository {
 
     private LinkedHashMap<Facility, Integer> facilityMap = new LinkedHashMap<>();
-
+    
     public FacilityRepository() {
     }
 
     public LinkedHashMap<Facility, Integer> getFacilityMap() {
-        return facilityMap;
+        return facilityMap = BookingService.getMap();
     }
 
     public void setFacilityMap(LinkedHashMap<Facility, Integer> facilityMap) {

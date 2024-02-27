@@ -19,7 +19,8 @@ public class PromotionService {
     TreeSet<Booking> cusServList = new TreeSet<>();
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-    public PromotionService() {
+    public PromotionService(BookingService bs) {
+        this.bs=bs;
     }
 
     public void showCusService() {
