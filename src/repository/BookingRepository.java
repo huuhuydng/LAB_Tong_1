@@ -4,11 +4,10 @@
  */
 package repository;
 
-/**
- *
- * @author DELL
- */
-import Model.Facility;
+
+import model.Facility;
+import model.Booking;
+import service.*;
 import java.awt.font.LineBreakMeasurer;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -34,7 +33,7 @@ public class BookingRepository {
         this.listBooking = listBooking;
     }
 
-    static String bookingPath = "Booking.txt";
+    static String bookingPath = "DataBooking.txt";
     Map<Facility, Integer> bill = new HashMap<>();
 
     public void loadBooking() throws IOException, ParseException {

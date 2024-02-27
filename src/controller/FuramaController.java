@@ -67,6 +67,7 @@ public class FuramaController extends Menu {
             }
 
             case 4: { //Booking Management
+                
                 try {
                     String[] mchon = {"Add new booking",
                                       "Display list booking",

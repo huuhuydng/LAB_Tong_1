@@ -2,6 +2,8 @@ package service;
 
 import model.Facility;
 import model.Villa;
+import repository.FacilityRepository;
+import repository.Repository;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -23,6 +25,7 @@ public class BookingService {
     Queue<Booking> bookingBill = new LinkedList<>();
     ArrayList<Constract> listConstract = new ArrayList<>();
     Map<Facility, Integer> bill = new HashMap<>();
+    FacilityRepository fr = new FacilityRepository();
     Map<Booking, Integer> oorder = new HashMap<>();  //luu cac phong trong 1 don
     Scanner in = new Scanner(System.in);
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -97,7 +100,6 @@ public class BookingService {
             System.out.println("Input quantity: "); // check quan ddur k
             int quan = in.nextInt();
             bill.put(f, quan);
-
             in.nextLine();
 
         } while (confirm("continute booking"));

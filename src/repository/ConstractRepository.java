@@ -4,9 +4,8 @@
  */
 package repository;
 
-import Model.Constract;
-import Model.Facility;
-import static Service.BookingRepository.bookingPath;
+import model.Constract;
+import model.Facility;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -60,7 +59,7 @@ public class ConstractRepository {
         try {
 //            String line = null;
 
-            BufferedWriter bw = new BufferedWriter(new FileWriter(bookingPath));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(constractPath));
             for (Constract c : listConstract) {               
                     bw.write(c.getConstractId() + "," + c.getBookingId() + "," + c.getDeposit() + "," + c.getTotal() +"\n"); 
             }
