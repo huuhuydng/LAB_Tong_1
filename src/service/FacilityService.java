@@ -139,7 +139,9 @@ public class FacilityService {
                     + "\n3. Add new room"
                     + "\n4. Back to menu");
 
-            choice = Validation.getIntFromInput("your choice");
+            do{
+                choice = Validation.getIntFromInput("your choice");
+            }while(choice<1 || choice>4);
             String svID = null;
 
             if (choice == 1) {
@@ -166,7 +168,7 @@ public class FacilityService {
                     }
                 }
                 svID = "SVRO-" + String.format("%04d", ++dem);
-            } else if (choice >= 4) {
+            } else if (choice == 4) {
                 break;
             }
             Facility nFacility = addFacility(svID);

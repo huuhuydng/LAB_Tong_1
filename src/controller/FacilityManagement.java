@@ -24,7 +24,7 @@ public class FacilityManagement extends Menu{
     }
 
     @Override
-    public void execute(int n) {
+    public void execute(int n) throws ParseException, IOException {
         switch (n){
             case 1 ->{ try {
                 //"Display list facility"
@@ -43,7 +43,12 @@ public class FacilityManagement extends Menu{
             }
             
             case 3 ->{ //"Display list facility maintenance"
+            try {
+                //"Add new facility"
                 facilityService.displayFacilityMaintainence();
+            } catch (Exception ex) {
+                Logger.getLogger(FacilityManagement.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
             
             case 4 ->{ // "Return main menu"
