@@ -49,7 +49,8 @@ public class BookingRepository {
                 Facility r = fc.searchFacility((linearr[5].trim()));
                 bill.put(r, Integer.valueOf(linearr[6].trim()));
                 b = new Booking(linearr[0], bs.checkdate(linearr[1]), bs.checkdate(linearr[2]), bs.checkdate(linearr[3]), linearr[4], bill);
-                listBooking.add(b);
+                BookingService.readFile(b);
+                // listBooking.add(b);
             }
 
             br.close();

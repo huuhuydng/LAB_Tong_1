@@ -22,7 +22,7 @@ import model.Constract;
 
 public class BookingService {
 
-    public TreeSet<Booking> listBooking = new TreeSet<>();
+    public static TreeSet<Booking> listBooking = new TreeSet<>();
     Queue<Booking> bookingBill = new LinkedList<>();
     ArrayList<Constract> listConstract = new ArrayList<>();
     static LinkedHashMap<Facility, Integer> bill = new LinkedHashMap<>();
@@ -276,6 +276,10 @@ public class BookingService {
             return true;
         }
         return false;
+    }
+
+    public static void readFile(Booking b){
+        listBooking.add(b);
     }
 }
 
