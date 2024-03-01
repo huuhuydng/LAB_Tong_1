@@ -9,7 +9,11 @@ import view.Menu;
 
 /**
  *
+<<<<<<< HEAD
  * @author Hung
+=======
+ * @author Huydeptrai
+>>>>>>> 4ef9bd3d6e4be822f83cb233403cc05db4da7e13
  */
 public class BookingManagement extends Menu {
     

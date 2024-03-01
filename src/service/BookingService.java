@@ -4,6 +4,7 @@ import model.Facility;
 import model.Villa;
 import repository.FacilityRepository;
 import repository.Repository;
+import utils.Validation;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -30,7 +31,6 @@ public class BookingService {
     Map<Booking, Integer> oorder = new HashMap<>();  //luu cac phong trong 1 don
     Scanner in = new Scanner(System.in);
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
     CustomerService customerService = new CustomerService();
     FacilityService fc = new FacilityService();
 
@@ -281,5 +281,36 @@ public class BookingService {
     public static void readFile(Booking b){
         listBooking.add(b);
     }
-}
+
+    //Goi y Booking
+    public void Ideal(){
+        Map<String, Long> roomTypes= new HashMap<>();
+        System.out.println("Enter the amount you want: ");
+        long money = in.nextLong();
+        System.out.println("Enter number of room: ");
+        int slPhong = in.nextInt();
+        System.out.println("Enter number of days you want to stay: ");
+        int ngay = in.nextInt();
+        for (Facility b : fc.listFacility) {
+            roomTypes.put(b.getType(),b.getPrice());
+        }
+        
+        Map<String, Integer> roomAllocation = new HashMap<>();
+        for (String roomType : roomTypes.keySet()) {
+            int numberOfRoomsOfType = (int) (money / (roomTypes.get(roomType) * ngay));
+            roomAllocation.put(roomType, numberOfRoomsOfType);
+        }
+
+        for (String roomType : roomAllocation.keySet()) {
+            int numberOfRoomsOfType = roomAllocation.get(roomType);
+            System.out.println("Loại phòng bạn nên đặt là: ");
+            System.out.println(roomType + ": " + numberOfRoomsOfType);
+        }
+    }
+
+
+
+    }
+
+
 
